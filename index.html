@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek G L — AI Engineer · Agentic GraphRAG & MCP Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js + GLTFLoader + OrbitControls for Interactive 3D Blender House & Boid Swarm -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <!-- Custom Interactive Cursor Ring -->
+  <div id="cursor-halo" class="cursor-halo"></div>
+
+  <!-- Fullscreen Clean Micro-Boid Lattice (Parts smoothly around cursor) -->
+  <div id="webgl-container"></div>
+
+  <!-- Top Telemetry & Navigation Bar -->
+  <header class="navbar">
+    <a href="#hero" class="nav-brand">
+      <span class="brand-orb"></span>
+      <span class="brand-name">ABHISHEK G L</span>
+      <span class="brand-tag">AI ENGINEER @ CYIENT</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#hero" class="active">Overview</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Flagship Systems</a>
+      <a href="#sandboxes">3D Blender &amp; Audio AI</a>
+      <a href="#skills">Tech Arsenal</a>
+      <a href="#achievements">Recognition</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-telemetry">
+      <div class="telemetry-pill">
+        <span class="telemetry-dot"></span>
+        <span id="telemetry-fps">220 WATER BUBBLES · 60 FPS</span>
+      </div>
+      <a href="https://github.com/Abhishekgl08" target="_blank" rel="noopener" class="btn-inspect" style="padding: 6px 14px;">
+        GitHub ↗
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================================================================== -->
+    <!-- 1. HERO SECTION WITH NANO BANANA 3D AVATAR & WATER BUBBLES           -->
+    <!-- ==================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span>⚡</span>
+          <span>AGENTIC AI · GRAPHRAG · MODEL CONTEXT PROTOCOL (MCP) · LLM SYSTEMS</span>
+        </div>
+
+        <h1 class="hero-title">
+          Engineering <span class="gradient-text">Autonomous AI</span> &amp; Spatial Intelligence.
+        </h1>
+
+        <p class="hero-description">
+          Hi, I’m <strong>Abhishek G L</strong> — an <strong>AI Engineer at Cyient</strong> (formerly Software Engineer at <strong>Epiplex.ai</strong>) based in Bangalore. I architect deterministic <strong>Agentic GraphRAG</strong> pipelines, enterprise <strong>LLM Rule &amp; DSL-to-SQL Engines</strong>, <strong>Blender 3D MCP Servers</strong>, and multi-modal <strong>Audio &amp; Vision AI</strong> systems.
+        </p>
+
+        <!-- Key Benchmark Metrics -->
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <div class="metric-val">96.0%</div>
+            <div class="metric-label">TigerGraph Agentic GraphRAG Benchmark Winner (0.02s Agg)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">99.96<span style="font-size:1rem;color:var(--text-secondary);">/100</span></div>
+            <div class="metric-label">SignalPost Enterprise AI Hackathon Official Score</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">Top 10</div>
+            <div class="metric-label">IISc Bangalore Hackathon Finalist &amp; KSCST Grant Awardee</div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#sandboxes" class="btn btn-primary">
+            <span>Inspect Live 3D Duplex (rev-002)</span>
+            <span>↓</span>
+          </a>
+          <a href="#projects" class="btn btn-secondary">
+            <span>All 8 Flagship Systems</span>
+          </a>
+          <a href="https://github.com/Abhishekgl08/agentic-graphrag-tigergraph" target="_blank" rel="noopener" class="btn btn-secondary">
+            <span>TigerGraph Repo ↗</span>
+          </a>
+          <a href="https://linkedin.com/in/abhishek-gl-3687aa38a" target="_blank" rel="noopener" class="btn btn-secondary">
+            <span>LinkedIn ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Stage: Nano Banana 3D Character Avatar with 3D Cursor Tilt & Pose Switcher -->
+      <div id="hero-avatar-stage" class="hero-avatar-wrapper">
+        <div id="portrait-3d-rig">
+          <div class="portrait-hud-overlay">
+            <span class="hud-tag">● 3D AVATAR · CURSOR TILT</span>
+            <span class="hud-tag" style="color:#c4b5fd; border-color:rgba(139,92,246,0.35);">BANGALORE, IN</span>
+          </div>
+
+          <div id="portrait-cursor-glow"></div>
+          <div id="portrait-bg-rings"></div>
+
+          <div id="portrait-subject-layer" style="position:relative; width:94%; height:94%;">
+            <!-- Default: 3D AI Engineer holding glowing Knowledge Graph Cube -->
+            <img id="avatar-3d-cube-img" src="assets/avatar_3d_cube.jpg" alt="Abhishek G L 3D AI Architect Avatar" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:20px; transition:opacity 0.35s ease; opacity:1;" />
+            <!-- Pose 2: 3D Studio Character Avatar (Direct Gaze) -->
+            <img id="avatar-3d-front-img" src="assets/avatar_3d_front.jpg" alt="Abhishek G L 3D Front Avatar" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:20px; transition:opacity 0.35s ease; opacity:0;" />
+          </div>
+        </div>
+
+        <!-- 3D Avatar Pose Switcher -->
+        <div style="display:flex; align-items:center; justify-content:space-between; width:390px;">
+          <div class="avatar-mode-switcher">
+            <button class="mode-btn active" onclick="switchAvatarPose('cube', this)">3D Cube Pose</button>
+            <button class="mode-btn" onclick="switchAvatarPose('front', this)">3D Front Gaze</button>
+            <button class="mode-btn" onclick="switchAvatarPose('auto', this)">Auto-Turn on Cursor</button>
+          </div>
+        </div>
+
+        <div class="portrait-pillars-grid">
+          <div class="pillar-chip"><span style="color:var(--accent-cyan);">◈</span> TigerGraph + Groq 120B</div>
+          <div class="pillar-chip"><span style="color:var(--accent-emerald);">◈</span> Custom Blender MCP 2.x</div>
+          <div class="pillar-chip"><span style="color:var(--accent-amber);">◈</span> Kafka · Databricks · Azure</div>
+          <div class="pillar-chip"><span style="color:#c4b5fd;">◈</span> Audio Diarization &amp; CX AI</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 2. PROFESSIONAL EXPERIENCE TIMELINE                                  -->
+    <!-- ==================================================================== -->
+    <section id="experience">
+      <div class="section-header">
+        <div class="section-eyebrow">// 01 · PRODUCTION TRACK RECORD</div>
+        <h2 class="section-title">Enterprise AI &amp; Software Engineering Experience</h2>
+        <p class="section-subtitle">
+          Architecting production-grade LLM engines, financial RAG platforms, and distributed data pipelines at scale.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <!-- Role 1: Cyient -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <h3 class="role-title">AI Engineer — <span class="company-name">Cyient</span></h3>
+              <p style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Bangalore, India · Enterprise AI &amp; Data Intelligence</p>
+            </div>
+            <span class="role-date">Jun 2026 – Present</span>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Built an end-to-end <strong>LLM-powered rule engine</strong> that processes complex enterprise business documents and transforms relevant document context into actionable rules based on business criticality and operational impact.</li>
+            <li>Developed a high-throughput <strong>document intelligence pipeline</strong> ingesting documents via <strong>Apache Kafka and AWS S3</strong>, performing semantic chunking and embedding generation with <strong>Azure OpenAI</strong> to establish cross-chunk semantic relevance.</li>
+            <li>Engineered an automated <strong>rule execution workflow</strong> converting generated business rules into domain-specific <strong>DSL queries</strong>, mapping DSL logic to SQL, and synthesizing executable queries using LLMs.</li>
+            <li>Integrated <strong>Databricks</strong> for automated SQL execution and enterprise data retrieval, enabling real-time evaluation of rule-specific conditions and surfacing business-critical anomalies.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Azure OpenAI</span>
+            <span class="tech-tag">Apache Kafka</span>
+            <span class="tech-tag">Databricks</span>
+            <span class="tech-tag">AWS S3</span>
+            <span class="tech-tag">DSL-to-SQL Synthesis</span>
+            <span class="tech-tag">LLM Rule Engine</span>
+          </div>
+        </div>
+
+        <!-- Role 2: Epiplex.ai -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color:var(--accent-violet); box-shadow:0 0 14px var(--accent-violet);"></div>
+          <div class="timeline-header">
+            <div>
+              <h3 class="role-title">Software Engineer (Full-Time) — <span class="company-name">Epiplex.ai</span></h3>
+              <p style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Bangalore, India · Modular RAG, LLM Evaluation &amp; PII Security</p>
+            </div>
+            <span class="role-date">Jul 2025 – Jun 2026</span>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Built a <strong>production-ready modular RAG platform</strong> for a leading global financial institution (<strong>Wells Fargo</strong>), enabling scalable document ingestion, hybrid retrieval, and pluggable support for multiple LLMs while benchmarking inference latency, deployment trade-offs, and quantization formats.</li>
+            <li>Developed an <strong>AI-powered automatic test scenario generation system</strong> using LLMs to synthesize comprehensive QA test cases directly from application requirements, significantly expanding test coverage and reducing manual QA effort.</li>
+            <li>Engineered <strong>OCR-based PII detection and redaction pipelines</strong> for compliant handling of sensitive financial data, alongside enterprise-grade structured logging with unique session tracking for concurrent multi-user requests.</li>
+            <li>Diagnosed and resolved critical bottlenecks across distributed microservices, improving fault tolerance, error handling, and production SLA stability.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Modular RAG (Wells Fargo)</span>
+            <span class="tech-tag">vLLM / Ollama Quantization</span>
+            <span class="tech-tag">OCR PII Redaction</span>
+            <span class="tech-tag">Automated QA Generation</span>
+            <span class="tech-tag">FastAPI Microservices</span>
+          </div>
+        </div>
+
+        <!-- Role 3: Tech Solve Engine -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color:var(--accent-emerald); box-shadow:0 0 14px var(--accent-emerald);"></div>
+          <div class="timeline-header">
+            <div>
+              <h3 class="role-title">Cybersecurity Intern — <span class="company-name">Tech Solve Engine</span></h3>
+              <p style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Network Security &amp; Vulnerability Assessment</p>
+            </div>
+            <span class="role-date">Nov 2023 – Dec 2023</span>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Performed comprehensive <strong>Vulnerability Assessment and Penetration Testing (VAPT)</strong> across internal enterprise network infrastructure.</li>
+            <li>Identified critical system vulnerabilities, documented exploit vectors, and delivered actionable remediation reports to engineering teams.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">VAPT</span>
+            <span class="tech-tag">Network Security</span>
+            <span class="tech-tag">Threat Remediation</span>
+            <span class="tech-tag">Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 3. INTERACTIVE LIVE 3D BLENDER HOUSE (rev-002) & DIARIZATION         -->
+    <!-- ==================================================================== -->
+    <section id="sandboxes">
+      <div class="section-header">
+        <div class="section-eyebrow">// 02 · INTERACTIVE 3D BIM &amp; AUDIO AI SANDBOXES</div>
+        <h2 class="section-title">Live 3D Blender House (30×40 Duplex rev-002) &amp; Audio Diarization</h2>
+        <p class="section-subtitle">
+          Rotate and zoom the actual <strong>3D Blender model (<code>proj_30x40_duplex/versions/rev-002/model.blend</code>)</strong> generated by the custom MCP server, or switch to the high-resolution renders and multi-speaker audio diarization engine.
+        </p>
+      </div>
+
+      <div class="sandbox-grid">
+        <!-- Left Sandbox: Interactive 3D Three.js GLB Viewer + rev-002 Renders -->
+        <div class="sandbox-panel">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+            <span class="project-badge badge-cyan">⚡ LIVE 3D BLENDER MCP MODEL (REV-002)</span>
+            <div style="display:flex; gap:6px;">
+              <button class="dock-pill active" id="btn-mode-3d" onclick="setBlenderDisplayMode('3d')">Interactive 3D Mesh (.glb)</button>
+              <button class="dock-pill" id="btn-mode-renders" onclick="setBlenderDisplayMode('renders')">High-Res rev-002 Renders</button>
+            </div>
+          </div>
+
+          <h3 style="font-family:var(--font-display); font-size:1.3rem; margin-bottom:6px;">
+            30' × 40' Contemporary Residential Duplex (rev-002)
+          </h3>
+          <p style="font-size:0.86rem; color:var(--text-secondary); margin-bottom:14px;">
+            Features vertical slatted balcony balustrade, fluted Burma teak pivot door with brass inlay, horizontal slatted vehicular gate, and rooftop pergola.
+          </p>
+
+          <!-- Mode A: Live Interactive Three.js 3D Viewport -->
+          <div id="blender-3d-stage" class="viewer-stage-box">
+            <div id="glb-loading-status" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:var(--font-mono); font-size:0.8rem; color:var(--accent-cyan);">
+              Loading 3D Blender BIM Mesh...
+            </div>
+            <div id="blender-3d-canvas-wrap"></div>
+            <div class="viewer-hud-controls">
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <button class="dock-pill active model-select-btn" onclick="switch3DBuilding('assets/renders/duplex_rev002.glb', this)">30×40 Duplex (rev-002)</button>
+                <button class="dock-pill model-select-btn" onclick="switch3DBuilding('assets/renders/duplex_2000sqft.glb', this)">2000 SqFt Duplex</button>
+                <button class="dock-pill model-select-btn" onclick="switch3DBuilding('assets/renders/imperial_palace.glb', this)">Imperial Palace</button>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <button class="dock-pill" onclick="if(window.blenderViewerAPI) this.classList.toggle('active', window.blenderViewerAPI.toggleWireframe())">Wireframe</button>
+                <button class="dock-pill" onclick="if(window.blenderViewerAPI) window.blenderViewerAPI.resetCamera()">Reset View</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mode B: High-Res rev-002 Blender Renders Gallery -->
+          <div id="blender-renders-stage" style="display:none;">
+            <div class="viewer-stage-box" style="height:350px;">
+              <img id="blender-showcase-img" src="assets/renders/building_perspective.png" alt="30x40 Duplex rev-002 Render" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+            <p id="blender-showcase-caption" style="font-family:var(--font-mono); font-size:0.73rem; color:var(--accent-cyan); margin-bottom:10px;">
+              // REV-002: Exterior Perspective (Slatted Railing, Teak Louvers &amp; Horizontal Gate)
+            </p>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <button class="dock-pill active blender-tab-btn" onclick="switchBlenderRender('assets/renders/building_perspective.png', '// REV-002: Exterior Perspective (Slatted Railing, Teak Louvers & Horizontal Gate)', this)">Perspective</button>
+              <button class="dock-pill blender-tab-btn" onclick="switchBlenderRender('assets/renders/building_isometric.png', '// REV-002: Isometric Aerial View (Mumty Cabin & Rooftop Pergola)', this)">Isometric</button>
+              <button class="dock-pill blender-tab-btn" onclick="switchBlenderRender('assets/renders/view_entrance_closeup.png', '// REV-002: Fluted Burma Teak Pivot Entrance Door with Brass Inlay', this)">Entrance Closeup</button>
+              <button class="dock-pill blender-tab-btn" onclick="switchBlenderRender('assets/renders/view_railing_closeup.png', '// REV-002: Vertical Slatted Balcony Balustrade & Planter Box', this)">Balcony Railing</button>
+              <button class="dock-pill blender-tab-btn" onclick="switchBlenderRender('assets/renders/view_gate_closeup.png', '// REV-002: Horizontal Slatted Vehicular Gate & Pedestrian Entry', this)">Gate Closeup</button>
+              <button class="dock-pill blender-tab-btn" onclick="switchBlenderRender('assets/renders/elevation_front.png', '// REV-002: Architectural Orthographic Front Elevation Drawing', this)">Front Elevation</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Sandbox: Audio Diarization & CX Report Simulator -->
+        <div class="sandbox-panel">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="project-badge badge-violet">🎙️ SPEAKER DIARIZATION &amp; CX ENGINE</span>
+            <div style="display:flex; gap:6px;">
+              <button class="dock-pill active diar-sample-btn" onclick="loadDiarizationSample(0, this)">Call #4092</button>
+              <button class="dock-pill diar-sample-btn" onclick="loadDiarizationSample(1, this)">Call #4108</button>
+            </div>
+          </div>
+          <h3 style="font-family:var(--font-display); font-size:1.3rem; margin-bottom:6px;">
+            Customer vs. Support Voice Separation &amp; QA Report
+          </h3>
+          <p style="font-size:0.86rem; color:var(--text-secondary);">
+            Extracts dual-speaker voice timelines, identifies core customer issue &amp; intent, tracks sentiment shift, and scores support experience.
+          </p>
+
+          <div class="diarization-box">
+            <div class="waveform-track">
+              <div class="speaker-lane">
+                <span class="speaker-label" style="color:var(--accent-cyan);">● CUSTOMER</span>
+                <div id="cust-wave-bars" class="waveform-bars"></div>
+              </div>
+              <div class="speaker-lane">
+                <span class="speaker-label" style="color:var(--accent-emerald);">● SUPPORT AGENT</span>
+                <div id="agent-wave-bars" class="waveform-bars"></div>
+              </div>
+            </div>
+
+            <div id="diar-transcript" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:12px;"></div>
+            <div id="diar-report"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 4. FLAGSHIP AI & ENGINEERING SYSTEMS (8 PROJECTS)                    -->
+    <!-- ==================================================================== -->
+    <section id="projects">
+      <div class="section-header">
+        <div class="section-eyebrow">// 03 · ARCHITECTURAL DEEP DIVES</div>
+        <h2 class="section-title">Flagship Agentic, GraphRAG &amp; Multimodal Systems</h2>
+        <p class="section-subtitle">
+          Click <strong>Inspect Architecture &amp; Specs</strong> on any system to view its full multi-agent control loop, benchmark table, and pipeline telemetry.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All 8 Systems</button>
+        <button class="filter-btn" data-filter="agentic">Agentic AI &amp; GraphRAG</button>
+        <button class="filter-btn" data-filter="mcp">MCP &amp; 3D Generative CAD</button>
+        <button class="filter-btn" data-filter="multimodal">Audio Diarization &amp; Vision AI</button>
+        <button class="filter-btn" data-filter="rag">Exam Intelligence &amp; RAG</button>
+        <button class="filter-btn" data-filter="ml">Recommender Systems</button>
+      </div>
+
+      <!-- Dynamic Projects Grid populated by app.js -->
+      <div id="projects-grid" class="projects-grid"></div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 5. SKILLS & TECHNICAL ARSENAL                                        -->
+    <!-- ==================================================================== -->
+    <section id="skills">
+      <div class="section-header">
+        <div class="section-eyebrow">// 04 · FULL-STACK AI CAPABILITIES</div>
+        <h2 class="section-title">Technical Arsenal &amp; Engineering Stack</h2>
+        <p class="section-subtitle">
+          Production fluency across LLM orchestration, Knowledge Graphs, distributed data engineering, and multimodal AI.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="skill-cat-title"><span>🧠</span> Generative AI &amp; LLM Engineering</div>
+          <div class="tech-tags">
+            <span class="tech-tag">RAG &amp; Modular RAG</span>
+            <span class="tech-tag">Agentic GraphRAG</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">LangGraph</span>
+            <span class="tech-tag">CrewAI</span>
+            <span class="tech-tag">Model Context Protocol (MCP)</span>
+            <span class="tech-tag">vLLM &amp; Ollama</span>
+            <span class="tech-tag">Hugging Face</span>
+            <span class="tech-tag">LLM Evaluation</span>
+            <span class="tech-tag">Semantic Retrieval</span>
+            <span class="tech-tag">Knowledge Grounding</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-title"><span>🕸️</span> Knowledge Graphs &amp; Semantic AI</div>
+          <div class="tech-tags">
+            <span class="tech-tag">TigerGraph (Savanna GSQL)</span>
+            <span class="tech-tag">Knowledge Graphs</span>
+            <span class="tech-tag">Ontology Design</span>
+            <span class="tech-tag">Semantic Modeling</span>
+            <span class="tech-tag">Graph Data Modeling</span>
+            <span class="tech-tag">Knowledge Representation</span>
+            <span class="tech-tag">Reciprocal Rank Fusion</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-title"><span>☁️</span> Backend, Cloud &amp; Data Platforms</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">Apache Kafka</span>
+            <span class="tech-tag">Databricks</span>
+            <span class="tech-tag">AWS S3</span>
+            <span class="tech-tag">Azure OpenAI</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Kubernetes</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-title"><span>🎙️</span> Machine Learning, Audio &amp; Vision</div>
+          <div class="tech-tags">
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">TensorFlow</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">Speaker Diarization</span>
+            <span class="tech-tag">Whisper ASR</span>
+            <span class="tech-tag">PaddleOCR</span>
+            <span class="tech-tag">PyMuPDF</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">PII Detection &amp; Redaction</span>
+            <span class="tech-tag">Implicit ALS RecSys</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-title"><span>📐</span> 3D Automation, Workflows &amp; Tools</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Blender 5.2 Python API</span>
+            <span class="tech-tag">FastMCP / MCP 2.x</span>
+            <span class="tech-tag">N8N Workflows</span>
+            <span class="tech-tag">FAISS / Vector DBs</span>
+            <span class="tech-tag">Pydantic v2</span>
+            <span class="tech-tag">Git &amp; Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-title"><span>📊</span> Observability, Security &amp; QA</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Langfuse</span>
+            <span class="tech-tag">Grafana</span>
+            <span class="tech-tag">Kibana</span>
+            <span class="tech-tag">Kiali</span>
+            <span class="tech-tag">JMeter</span>
+            <span class="tech-tag">Pytest</span>
+            <span class="tech-tag">Postman</span>
+            <span class="tech-tag">VAPT Security</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 6. EDUCATION, HACKATHONS & ACHIEVEMENTS                              -->
+    <!-- ==================================================================== -->
+    <section id="achievements">
+      <div class="section-header">
+        <div class="section-eyebrow">// 05 · ACADEMIC EXCELLENCE &amp; AWARDS</div>
+        <h2 class="section-title">Education, Hackathons &amp; Recognition</h2>
+      </div>
+
+      <div class="edu-ach-grid">
+        <div class="glass-card">
+          <h3 style="font-family:var(--font-display); font-size:1.3rem; color:var(--accent-cyan); margin-bottom:16px;">
+            🏆 Honors, Hackathons &amp; Grants
+          </h3>
+          <div class="edu-item">
+            <div style="font-weight:700; font-size:1.02rem;">Top 10 Finalist — Cognavi Ascend Hackathon</div>
+            <div style="color:var(--text-secondary); font-size:0.88rem;">Indian Institute of Science (IISc), Bangalore</div>
+          </div>
+          <div class="edu-item">
+            <div style="font-weight:700; font-size:1.02rem;">KSCST Research Grant Awardee</div>
+            <div style="color:var(--text-secondary); font-size:0.88rem;">Received official project funding under the 47th Student Project Programme (Karnataka State Council for Science and Technology)</div>
+          </div>
+          <div class="edu-item">
+            <div style="font-weight:700; font-size:1.02rem;">99.96 / 100.0 Benchmark — Builderr / Unstop AI Challenge</div>
+            <div style="color:var(--text-secondary); font-size:0.88rem;">SignalPost High-Precision Norwegian Company Intelligence Agent (100% External Precision)</div>
+          </div>
+          <div class="edu-item">
+            <div style="font-weight:700; font-size:1.02rem;">96.0% Accuracy — Autonomous Agentic GraphRAG Benchmark</div>
+            <div style="color:var(--text-secondary); font-size:0.88rem;">TigerGraph + Groq 4-Agent System with 620× faster deterministic graph aggregation</div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <h3 style="font-family:var(--font-display); font-size:1.3rem; color:var(--accent-cyan); margin-bottom:16px;">
+            🎓 Education &amp; Certifications
+          </h3>
+          <div class="edu-item">
+            <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.02rem;">
+              <span>Dr. Ambedkar Institute of Technology</span>
+              <span style="color:var(--accent-cyan); font-family:var(--font-mono); font-size:0.82rem;">Nov 2021 – 2025</span>
+            </div>
+            <div style="color:var(--text-secondary); font-size:0.9rem;">B.E. in Computer Science and Engineering · <strong>CGPA: 8.85 / 10</strong></div>
+          </div>
+          <div class="edu-item">
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+              <span>Narayana PU College</span>
+              <span style="color:var(--text-muted); font-family:var(--font-mono); font-size:0.82rem;">2021</span>
+            </div>
+            <div style="color:var(--text-secondary); font-size:0.9rem;">2nd PUC · <strong>Percentage: 92.16%</strong></div>
+          </div>
+          <div class="edu-item">
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+              <span>Sri Sathya Sai Vidya Kendra</span>
+              <span style="color:var(--text-muted); font-family:var(--font-mono); font-size:0.82rem;">2019</span>
+            </div>
+            <div style="color:var(--text-secondary); font-size:0.9rem;">10th Grade · <strong>Percentage: 86.2%</strong></div>
+          </div>
+          <div class="edu-item">
+            <div style="font-weight:700; color:var(--text-primary); margin-bottom:6px;">Industry Certifications</div>
+            <div class="tech-tags">
+              <span class="tech-tag">Complete Data Science, ML, DL &amp; NLP Bootcamp — Udemy</span>
+              <span class="tech-tag">Python for Data Science, AI &amp; Development — IBM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 7. CONTACT FOOTER                                                    -->
+    <!-- ==================================================================== -->
+    <footer id="contact">
+      <div class="section-eyebrow">// 06 · INITIATE COLLABORATION</div>
+      <h2 class="section-title" style="margin-bottom:14px;">Let’s Build Next-Generation AI Systems</h2>
+      <p style="color:var(--text-secondary); max-width:560px; margin:0 auto 28px;">
+        Available for high-impact AI Engineering, Agentic GraphRAG, MCP Architecture, and Enterprise LLM discussions in Bangalore or remote.
+      </p>
+      <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-bottom:36px;">
+        <a href="mailto:abhishekgl1659655@gmail.com" class="btn btn-primary">
+          <span>✉️ abhishekgl1659655@gmail.com</span>
+        </a>
+        <a href="tel:+917899434663" class="btn btn-secondary">
+          <span>📞 +91 7899434663</span>
+        </a>
+        <a href="https://linkedin.com/in/abhishek-gl-3687aa38a" target="_blank" rel="noopener" class="btn btn-secondary">
+          <span>LinkedIn Profile ↗</span>
+        </a>
+        <a href="https://github.com/Abhishekgl08" target="_blank" rel="noopener" class="btn btn-secondary">
+          <span>GitHub (@Abhishekgl08) ↗</span>
+        </a>
+      </div>
+      <p style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-muted);">
+        DESIGNED &amp; ENGINEERED FOR ABHISHEK G L · POWERED BY THREE.JS WEBGL &amp; BLENDER 5.2 GLTF
+      </p>
+    </footer>
+  </main>
+
+  <!-- ====================================================================== -->
+  <!-- SLEEK 3D WATER BUBBLES CONTROL DOCK (BOTTOM-RIGHT, COMPACT & SUBTLE)   -->
+  <!-- ====================================================================== -->
+  <aside id="argon-dock" class="argon-dock">
+    <div class="dock-top-row">
+      <div class="dock-group">
+        <span class="dock-label">● 3D WATER BUBBLES:</span>
+        <button class="dock-pill dock-expandable" onclick="window.portfolio3DAPI && window.portfolio3DAPI.triggerBurst()" style="border-color:var(--accent-cyan); color:var(--accent-cyan);">
+          💧 Ripple Burst
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <button id="dock-toggle-btn" class="dock-pill">▼ Compact</button>
+      </div>
+    </div>
+
+    <div class="dock-bottom-row dock-expandable">
+      <div class="slider-control">
+        <div class="slider-header">
+          <span>BUBBLES / STARS</span>
+          <span id="val-bubbles">580</span>
+        </div>
+        <input id="slider-bubbles" type="range" min="200" max="1400" step="20" value="580" />
+      </div>
+
+      <div class="slider-control">
+        <div class="slider-header">
+          <span>CURSOR SPACE</span>
+          <span id="val-repel">2.1m</span>
+        </div>
+        <input id="slider-repel" type="range" min="0.8" max="3.8" step="0.1" value="2.1" />
+      </div>
+
+      <div class="slider-control">
+        <div class="slider-header">
+          <span>FLOAT SPEED</span>
+          <span id="val-speed">1.0×</span>
+        </div>
+        <input id="slider-speed" type="range" min="0.2" max="2.5" step="0.1" value="1.0" />
+      </div>
+
+      <div class="slider-control">
+        <div class="slider-header">
+          <span>SPRING PULL</span>
+          <span id="val-lock">1.0×</span>
+        </div>
+        <input id="slider-lock" type="range" min="0.3" max="2.5" step="0.1" value="1.0" />
+      </div>
+    </div>
+  </aside>
+
+  <!-- Project Architecture Modal -->
+  <div id="project-modal" class="modal-backdrop" onclick="if(event.target===this) closeProjectModal()">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeProjectModal()">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="webgl-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

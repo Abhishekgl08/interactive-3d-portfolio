@@ -1,0 +1,380 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2000" width="100%" height="100%" style="background-color: #0c1017; font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;">
+  <defs>
+    <!-- Grid Pattern -->
+    <pattern id="cadGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1b2433" stroke-width="1"/>
+      <path d="M 200 0 L 0 0 0 200" fill="none" stroke="#223045" stroke-width="1.5"/>
+    </pattern>
+    <!-- Wall Hatch Pattern -->
+    <pattern id="wallHatch" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#3d4f68" stroke-width="2" />
+    </pattern>
+    <!-- Dimension Marker -->
+    <marker id="tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 2 8 L 8 2" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 2 L 8 5 L 1 8 Z" fill="#00e5ff"/>
+    </marker>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="100%" height="100%" fill="url(#cadGrid)" />
+
+  <!-- Sheet Border -->
+  <rect x="40" y="40" width="1520" height="1920" fill="none" stroke="#2a3b52" stroke-width="3"/>
+  <rect x="50" y="50" width="1500" height="1900" fill="none" stroke="#1d2a3a" stroke-width="1"/>
+
+  <!-- ================= HEADER TITLE BLOCK ================= -->
+  <g transform="translate(80, 80)">
+    <text x="0" y="32" font-size="28" font-weight="800" fill="#ffffff" letter-spacing="2">30' × 40' RESIDENTIAL DUPLEX VILLA</text>
+    <text x="0" y="60" font-size="16" font-weight="500" fill="#00e5ff" letter-spacing="1.5">CIVIL &amp; ARCHITECTURAL WORKING DRAWING — GROUND FLOOR SPATIAL PLAN</text>
+    <text x="0" y="85" font-size="13" fill="#889bb0">PLOT: 30'-0" × 40'-0" (1,200 SQ.FT / 111.48 SQ.M) | FACING: NORTH | SCALE 1:50 | NBC 2016 COMPLIANT</text>
+    <line x1="0" y1="105" x2="1440" y2="105" stroke="#2a3b52" stroke-width="2"/>
+  </g>
+
+  <!-- ================= VASTU & NORTH COMPASS ================= -->
+  <g transform="translate(1420, 160)">
+    <circle cx="0" cy="0" r="42" fill="#131b26" stroke="#00e5ff" stroke-width="2"/>
+    <!-- North Arrow -->
+    <path d="M 0 -36 L 10 -6 L 0 -12 L -10 -6 Z" fill="#00e5ff"/>
+    <path d="M 0 36 L 8 6 L 0 12 L -8 6 Z" fill="#3a4d66"/>
+    <text x="0" y="-42" text-anchor="middle" font-size="16" font-weight="800" fill="#00e5ff">N</text>
+    <text x="0" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#6d849e">S</text>
+    <text x="52" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#6d849e">E</text>
+    <text x="-52" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#6d849e">W</text>
+    <text x="24" y="-20" font-size="10" fill="#ffd166">NE (Ishanya)</text>
+    <text x="24" y="30" font-size="10" fill="#ff6b6b">SE (Agni)</text>
+    <text x="-70" y="30" font-size="10" fill="#06d6a0">SW (Nairuthi)</text>
+    <text x="-70" y="-20" font-size="10" fill="#118ab2">NW (Vayu)</text>
+  </g>
+
+  <!-- ================= CAD DRAWING AREA ================= -->
+  <!-- 
+       Coordinates:
+       Plot Width = 30ft (scale: 32px per foot = 960px)
+       Plot Depth = 40ft (scale: 32px per foot = 1280px)
+       Origin of plot at (320, 270)
+       X: 320 to 1280 (width = 960px = 30ft)
+       Y: 270 to 1550 (height = 1280px = 40ft)
+       North is TOP (Front Road), South is BOTTOM (Rear)
+       West is LEFT, East is RIGHT
+  -->
+  <g id="plot_cad" transform="translate(0, 0)">
+
+    <!-- Road Boundary / Front Road -->
+    <rect x="240" y="190" width="1120" height="70" fill="#141a24" stroke="#2a3b52" stroke-dasharray="8,6" stroke-width="1.5"/>
+    <text x="800" y="235" text-anchor="middle" font-size="15" font-weight="700" fill="#889bb0" letter-spacing="4">30'-0" WIDE PUBLIC ACCESS ROAD (NORTH)</text>
+
+    <!-- PLOT BOUNDARY (30' x 40') -->
+    <rect x="320" y="270" width="960" height="1280" fill="#0e141d" stroke="#ffb703" stroke-width="2.5" stroke-dasharray="12,6"/>
+    <text x="330" y="295" font-size="12" font-weight="700" fill="#ffb703">SITE BOUNDARY: 30'-0" × 40'-0" (1200 SQ.FT)</text>
+
+    <!-- SETBACK ZONES (Hatched / Transparent) -->
+    <!-- Front Setback: 5'-0" = 160px (Y: 270 to 430) -->
+    <!-- Rear Setback: 3'-0" = 96px (Y: 1454 to 1550) -->
+    <!-- Left Setback: 3'-0" = 96px (X: 320 to 416) -->
+    <!-- Right Setback: 3'-0" = 96px (X: 1184 to 1280) -->
+    <rect x="320" y="270" width="960" height="160" fill="#162233" fill-opacity="0.35"/>
+    <text x="800" y="350" text-anchor="middle" font-size="13" font-weight="600" fill="#52799c" letter-spacing="1">FRONT SETBACK 5'-0" (1.52m)</text>
+
+    <rect x="320" y="1454" width="960" height="96" fill="#162233" fill-opacity="0.35"/>
+    <text x="800" y="1508" text-anchor="middle" font-size="12" font-weight="600" fill="#52799c">REAR SETBACK 3'-0" (0.91m)</text>
+
+    <rect x="320" y="430" width="96" height="1024" fill="#162233" fill-opacity="0.35"/>
+    <text x="368" y="940" text-anchor="middle" font-size="12" font-weight="600" fill="#52799c" transform="rotate(-90 368 940)">SIDE SETBACK 3'-0"</text>
+
+    <rect x="1184" y="430" width="96" height="1024" fill="#162233" fill-opacity="0.35"/>
+    <text x="1232" y="940" text-anchor="middle" font-size="12" font-weight="600" fill="#52799c" transform="rotate(90 1232 940)">SIDE SETBACK 3'-0"</text>
+
+    <!-- ================= PLINTH / BUILT-UP AREA ================= -->
+    <!-- Built-up width = 24'-0" = 768px (X: 416 to 1184) -->
+    <!-- Built-up depth = 32'-0" = 1024px (Y: 430 to 1454) -->
+    <rect x="416" y="430" width="768" height="1024" fill="#121a24" stroke="#486581" stroke-width="2"/>
+
+    <!-- EXTERIOR WALLS (9" = 24px thick) -->
+    <!-- Rear Wall -->
+    <rect x="416" y="1430" width="768" height="24" fill="url(#wallHatch)" stroke="#627d98" stroke-width="1.5"/>
+    <!-- Left Wall -->
+    <rect x="416" y="430" width="24" height="1024" fill="url(#wallHatch)" stroke="#627d98" stroke-width="1.5"/>
+    <!-- Right Wall -->
+    <rect x="1160" y="430" width="24" height="1024" fill="url(#wallHatch)" stroke="#627d98" stroke-width="1.5"/>
+    <!-- Front Living Wall (Right half of front plinth, X: 736 to 1184) -->
+    <rect x="736" y="430" width="448" height="24" fill="url(#wallHatch)" stroke="#627d98" stroke-width="1.5"/>
+
+    <!-- ================= INTERNAL SPACES ================= -->
+
+    <!-- 1. PARKING PORCH (NW) -->
+    <!-- X: 416 to 736 (10'-0" = 320px), Y: 430 to 926 (15'-6" = 496px) -->
+    <g id="room_parking">
+      <rect x="440" y="454" width="296" height="472" fill="#17202c" stroke="#27384c" stroke-width="1"/>
+      <circle cx="588" cy="690" r="3" fill="#00e5ff"/>
+      <!-- Sedan Car Silhouette -->
+      <rect x="500" y="520" width="176" height="360" rx="28" fill="#1e2c3d" stroke="#3e536c" stroke-width="2"/>
+      <rect x="515" y="580" width="146" height="180" rx="14" fill="#293b50" stroke="#486581" stroke-width="1.5"/>
+      <text x="588" y="730" text-anchor="middle" font-size="14" font-weight="700" fill="#00e5ff">CAR PORCH</text>
+      <text x="588" y="752" text-anchor="middle" font-size="12" fill="#9fb3c8">10'-0" × 15'-6" (155 SQ.FT)</text>
+      <text x="588" y="772" text-anchor="middle" font-size="11" fill="#627d98">Tile/Paver Finish | Vayu Zone</text>
+    </g>
+
+    <!-- Partition Wall: Parking & Living (9" = 24px) -->
+    <rect x="736" y="430" width="24" height="496" fill="url(#wallHatch)" stroke="#627d98" stroke-width="1.5"/>
+    <!-- Main Entrance Door Opening (at Y = 820 to 920, 3'-3" wide) -->
+    <rect x="736" y="820" width="24" height="96" fill="#121a24" stroke="none"/>
+    <!-- Door Swing Arc (D1) -->
+    <path d="M 760 916 A 96 96 0 0 0 856 820" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <line x1="760" y1="916" x2="856" y2="916" stroke="#00e5ff" stroke-width="2"/>
+    <text x="800" y="880" font-size="11" font-weight="700" fill="#00e5ff">D1 (3'3"×7')</text>
+
+    <!-- 2. LIVING HALL (NE) -->
+    <!-- X: 760 to 1160 (12'-6" = 400px), Y: 454 to 926 (14'-9" = 472px) -->
+    <g id="room_living">
+      <rect x="760" y="454" width="400" height="472" fill="#141c27" stroke="#27384c" stroke-width="1"/>
+      <!-- Window W1 on Front Wall -->
+      <rect x="880" y="426" width="160" height="12" fill="#00e5ff" stroke="#ffffff" stroke-width="1"/>
+      <text x="960" y="420" text-anchor="middle" font-size="10" font-weight="700" fill="#00e5ff">W1 (5'0" × 4'6")</text>
+
+      <!-- Sectional Sofa Drawing -->
+      <rect x="800" y="500" width="240" height="70" rx="6" fill="#243345" stroke="#3e536c" stroke-width="1.5"/>
+      <rect x="970" y="570" width="70" height="150" rx="6" fill="#243345" stroke="#3e536c" stroke-width="1.5"/>
+      <!-- Coffee Table -->
+      <rect x="830" y="600" width="110" height="65" rx="4" fill="#3b2b1d" stroke="#5c432d" stroke-width="1.5"/>
+      <!-- TV Console on East Wall -->
+      <rect x="1136" y="580" width="20" height="180" fill="#333" stroke="#555" stroke-width="1"/>
+      <text x="1125" y="675" font-size="10" fill="#888" transform="rotate(-90 1125 675)">65" SMART TV</text>
+
+      <text x="890" y="730" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">LIVING HALL</text>
+      <text x="890" y="754" text-anchor="middle" font-size="13" font-weight="600" fill="#00e5ff">12'-6" × 14'-9" (184 SQ.FT)</text>
+      <text x="890" y="774" text-anchor="middle" font-size="11" fill="#889bb0">Italian Vitrified Flooring | Ishanya Corner</text>
+    </g>
+
+    <!-- 3. CENTRAL DINING SPACE -->
+    <!-- X: 760 to 1160, Y: 926 to 1182 (8'-0" = 256px) -->
+    <g id="room_dining">
+      <rect x="760" y="926" width="400" height="256" fill="#161f2c" stroke="#27384c" stroke-width="1"/>
+      <!-- 6-Seater Dining Table -->
+      <rect x="860" y="990" width="180" height="100" rx="8" fill="#422e1b" stroke="#69492a" stroke-width="2"/>
+      <!-- Dining Chairs -->
+      <rect x="880" y="960" width="36" height="25" rx="3" fill="#283b4f"/>
+      <rect x="932" y="960" width="36" height="25" rx="3" fill="#283b4f"/>
+      <rect x="984" y="960" width="36" height="25" rx="3" fill="#283b4f"/>
+      <rect x="880" y="1095" width="36" height="25" rx="3" fill="#283b4f"/>
+      <rect x="932" y="1095" width="36" height="25" rx="3" fill="#283b4f"/>
+      <rect x="984" y="1095" width="36" height="25" rx="3" fill="#283b4f"/>
+
+      <text x="950" y="1145" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">DINING SPACE</text>
+      <text x="950" y="1165" text-anchor="middle" font-size="12" font-weight="600" fill="#00e5ff">12'-6" × 8'-0" (100 SQ.FT)</text>
+    </g>
+
+    <!-- 4. DOG-LEGGED STAIRCASE (Core Spine) -->
+    <!-- X: 440 to 736 (9'-3" = 296px), Y: 926 to 1182 (8'-0" = 256px) -->
+    <g id="staircase">
+      <rect x="440" y="926" width="296" height="256" fill="#131b26" stroke="#27384c" stroke-width="1"/>
+      <!-- Flight 1 Steps (Going UP) -->
+      <g stroke="#3a4f66" stroke-width="1.5">
+        <line x1="440" y1="954" x2="588" y2="954"/>
+        <line x1="440" y1="982" x2="588" y2="982"/>
+        <line x1="440" y1="1010" x2="588" y2="1010"/>
+        <line x1="440" y1="1038" x2="588" y2="1038"/>
+        <line x1="440" y1="1066" x2="588" y2="1066"/>
+        <line x1="440" y1="1094" x2="588" y2="1094"/>
+        <line x1="440" y1="1122" x2="588" y2="1122"/>
+      </g>
+      <!-- Mid-Landing -->
+      <rect x="440" y="1122" width="296" height="60" fill="#1d2838" stroke="#3a4f66" stroke-width="1.5"/>
+      <!-- Flight Dividing Railing -->
+      <line x1="588" y1="926" x2="588" y2="1122" stroke="#00e5ff" stroke-width="2"/>
+      <!-- UP Arrow -->
+      <line x1="514" y1="1100" x2="514" y2="940" stroke="#00e5ff" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="514" y="1115" text-anchor="middle" font-size="11" font-weight="700" fill="#00e5ff">UP (To 1st Flr)</text>
+      <text x="660" y="1030" text-anchor="middle" font-size="12" font-weight="600" fill="#889bb0">STAIRS</text>
+      <text x="660" y="1050" text-anchor="middle" font-size="10" fill="#627d98">Tread: 11" | Riser: 6"</text>
+    </g>
+
+    <!-- Partition Wall: Kitchen & Dining (4.5" = 12px) with 4'-0" Archway -->
+    <rect x="910" y="1182" width="250" height="12" fill="url(#wallHatch)" stroke="#627d98" stroke-width="1.5"/>
+    <text x="835" y="1191" font-size="10" font-weight="700" fill="#00e5ff">OPEN ARCH (4'0")</text>
+
+    <!-- 5. MODULAR KITCHEN & UTILITY (SE) -->
+    <!-- X: 760 to 1160 (12'-6" = 400px), Y: 1194 to 1430 (7'-4" = 236px) -->
+    <g id="room_kitchen">
+      <rect x="760" y="1194" width="400" height="236" fill="#141c28" stroke="#27384c" stroke-width="1"/>
+      <!-- L-Shaped Kitchen Counter (2'0" = 64px deep) -->
+      <path d="M 760 1366 L 1160 1366 L 1160 1194 L 1096 1194 L 1096 1302 L 760 1302 Z" fill="#1f2d3d" stroke="#334e68" stroke-width="1.5"/>
+      <!-- 4-Burner Hob -->
+      <rect x="880" y="1320" width="70" height="40" rx="3" fill="#111" stroke="#ff6b6b" stroke-width="1.5"/>
+      <circle cx="895" cy="1333" r="5" fill="#ff6b6b"/>
+      <circle cx="935" cy="1333" r="5" fill="#ff6b6b"/>
+      <circle cx="895" cy="1347" r="5" fill="#ff6b6b"/>
+      <circle cx="935" cy="1347" r="5" fill="#ff6b6b"/>
+      <!-- Double Bowl Sink -->
+      <rect x="1105" y="1220" width="45" height="70" rx="3" fill="#3a4d66" stroke="#00e5ff" stroke-width="1.5"/>
+      <!-- Refrigerator -->
+      <rect x="765" y="1205" width="70" height="70" rx="4" fill="#222" stroke="#627d98" stroke-width="1.5"/>
+      <text x="800" y="1245" text-anchor="middle" font-size="10" fill="#bbb">FRIDGE</text>
+
+      <text x="960" y="1260" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">MODULAR KITCHEN</text>
+      <text x="960" y="1280" text-anchor="middle" font-size="12" font-weight="600" fill="#00e5ff">12'-6" × 7'-4" (92 SQ.FT)</text>
+      <text x="960" y="1300" text-anchor="middle" font-size="10" fill="#ff6b6b">Agni (SE) Corner | Jet Black Granite</text>
+
+      <!-- Window W2 on Rear Wall -->
+      <rect x="980" y="1430" width="128" height="12" fill="#00e5ff" stroke="#ffffff" stroke-width="1"/>
+      <text x="1044" y="1454" text-anchor="middle" font-size="10" font-weight="700" fill="#00e5ff">W2 (4'0" × 3'0")</text>
+    </g>
+
+    <!-- Partition Wall: Bedroom Spine (X = 748, Y: 1182 to 1430) -->
+    <rect x="748" y="1182" width="12" height="248" fill="url(#wallHatch)" stroke="#627d98" stroke-width="1.5"/>
+
+    <!-- 6. MASTER BEDROOM (SW) -->
+    <!-- X: 440 to 748 (9'-7" = 308px), Y: 1182 to 1430 (7'-9" = 248px) -->
+    <g id="room_bedroom">
+      <rect x="440" y="1182" width="308" height="248" fill="#1a1c22" stroke="#27384c" stroke-width="1"/>
+      <!-- King Bed with Headboard -->
+      <rect x="450" y="1240" width="180" height="180" rx="6" fill="#3d2b1f" stroke="#5e4331" stroke-width="2"/>
+      <rect x="455" y="1245" width="170" height="170" rx="4" fill="#ede8df"/>
+      <!-- Pillows -->
+      <rect x="465" y="1380" width="65" height="30" rx="4" fill="#c4baa7"/>
+      <rect x="545" y="1380" width="65" height="30" rx="4" fill="#c4baa7"/>
+      <!-- Nightstands -->
+      <rect x="450" y="1200" width="35" height="35" rx="3" fill="#5e4331"/>
+      <!-- Wardrobe along West Wall -->
+      <rect x="442" y="1190" width="25" height="150" fill="#2f3b4c" stroke="#486581" stroke-width="1"/>
+
+      <!-- Bedroom Door D2 (3'0" wide) -->
+      <path d="M 700 1182 A 75 75 0 0 1 700 1257" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <line x1="700" y1="1182" x2="700" y2="1257" stroke="#00e5ff" stroke-width="2"/>
+      <text x="680" y="1225" font-size="10" font-weight="700" fill="#00e5ff">D2</text>
+
+      <text x="600" y="1215" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">MASTER BEDROOM</text>
+      <text x="600" y="1235" text-anchor="middle" font-size="11" font-weight="600" fill="#00e5ff">9'-7" × 7'-9" (75 SQ.FT)</text>
+      <text x="600" y="1350" text-anchor="middle" font-size="10" fill="#06d6a0">Nairuthi (SW) Zone | Teak Finish</text>
+    </g>
+
+    <!-- ================= EXTERIOR DIMENSION CHAINS ================= -->
+
+    <!-- Top Dimension: Site Width = 30'-0" -->
+    <g transform="translate(0, 160)">
+      <line x1="320" y1="0" x2="1280" y2="0" stroke="#00e5ff" stroke-width="1.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="800" y="-10" text-anchor="middle" font-size="16" font-weight="800" fill="#00e5ff">SITE WIDTH = 30'-0" (9.14 m)</text>
+    </g>
+
+    <!-- Top Dimension 2: Built-up & Setbacks Breakdown -->
+    <g transform="translate(0, 195)">
+      <!-- Left Setback: 3'-0" -->
+      <line x1="320" y1="0" x2="416" y2="0" stroke="#52799c" stroke-width="1.2" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="368" y="-6" text-anchor="middle" font-size="11" fill="#52799c">3'-0"</text>
+      <!-- Built-up Width: 24'-0" -->
+      <line x1="416" y1="0" x2="1184" y2="0" stroke="#00e5ff" stroke-width="1.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="800" y="-6" text-anchor="middle" font-size="14" font-weight="700" fill="#00e5ff">BUILDABLE WIDTH = 24'-0" (7.32 m)</text>
+      <!-- Right Setback: 3'-0" -->
+      <line x1="1184" y1="0" x2="1280" y2="0" stroke="#52799c" stroke-width="1.2" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="1232" y="-6" text-anchor="middle" font-size="11" fill="#52799c">3'-0"</text>
+    </g>
+
+    <!-- Left Dimension: Site Depth = 40'-0" -->
+    <g transform="translate(200, 0)">
+      <line x1="0" y1="270" x2="0" y2="1550" stroke="#00e5ff" stroke-width="1.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="-12" y="910" text-anchor="middle" font-size="16" font-weight="800" fill="#00e5ff" transform="rotate(-90 -12 910)">SITE DEPTH = 40'-0" (12.19 m)</text>
+    </g>
+
+    <!-- Left Dimension 2: Depth Breakdown -->
+    <g transform="translate(260, 0)">
+      <!-- Front Setback: 5'-0" -->
+      <line x1="0" y1="270" x2="0" y2="430" stroke="#52799c" stroke-width="1.2" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="-8" y="350" text-anchor="middle" font-size="11" fill="#52799c" transform="rotate(-90 -8 350)">5'-0"</text>
+      <!-- Built-up Depth: 32'-0" -->
+      <line x1="0" y1="430" x2="0" y2="1454" stroke="#00e5ff" stroke-width="1.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="-10" y="942" text-anchor="middle" font-size="14" font-weight="700" fill="#00e5ff" transform="rotate(-90 -10 942)">BUILDABLE DEPTH = 32'-0" (9.75 m)</text>
+      <!-- Rear Setback: 3'-0" -->
+      <line x1="0" y1="1454" x2="0" y2="1550" stroke="#52799c" stroke-width="1.2" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <text x="-8" y="1502" text-anchor="middle" font-size="11" fill="#52799c" transform="rotate(-90 -8 1502)">3'-0"</text>
+    </g>
+
+  </g>
+
+  <!-- ================= TECHNICAL SCHEDULE & AREA SUMMARY ================= -->
+  <g transform="translate(80, 1610)">
+    <!-- Schedule Box Background -->
+    <rect x="0" y="0" width="1440" height="310" rx="8" fill="#111822" stroke="#253549" stroke-width="1.5"/>
+
+    <!-- Column 1: AREA STATEMENT -->
+    <g transform="translate(30, 25)">
+      <text x="0" y="0" font-size="15" font-weight="800" fill="#00e5ff" letter-spacing="1">1. CIVIL AREA STATEMENT</text>
+      <line x1="0" y1="10" x2="380" y2="10" stroke="#2b3e55" stroke-width="1"/>
+      
+      <text x="0" y="35" font-size="13" fill="#889bb0">Total Plot Area:</text>
+      <text x="380" y="35" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">1,200.00 SQ.FT (111.48 m²)</text>
+
+      <text x="0" y="60" font-size="13" fill="#889bb0">Ground Built-up Area (Plinth):</text>
+      <text x="380" y="60" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">768.00 SQ.FT (71.35 m²)</text>
+
+      <text x="0" y="85" font-size="13" fill="#889bb0">Ground Carpet Area (Net usable):</text>
+      <text x="380" y="85" text-anchor="end" font-size="13" font-weight="700" fill="#00e5ff">638.00 SQ.FT (59.27 m²)</text>
+
+      <text x="0" y="110" font-size="13" fill="#889bb0">Covered Car Parking Area:</text>
+      <text x="380" y="110" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">155.00 SQ.FT (14.40 m²)</text>
+
+      <text x="0" y="135" font-size="13" fill="#889bb0">Ground Coverage Ratio:</text>
+      <text x="380" y="135" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">64.00% (Permissible: 70%)</text>
+
+      <text x="0" y="160" font-size="13" fill="#889bb0">Total Duplex Built-up (G+1+Mumty):</text>
+      <text x="380" y="160" text-anchor="end" font-size="13" font-weight="700" fill="#ffd166">1,720.00 SQ.FT (FAR: 1.43)</text>
+    </g>
+
+    <!-- Column 2: ROOM DIMENSION SCHEDULE -->
+    <g transform="translate(480, 25)">
+      <text x="0" y="0" font-size="15" font-weight="800" fill="#00e5ff" letter-spacing="1">2. ROOM DIMENSION SCHEDULE</text>
+      <line x1="0" y1="10" x2="430" y2="10" stroke="#2b3e55" stroke-width="1"/>
+
+      <text x="0" y="35" font-size="13" fill="#889bb0">Living Hall (NE):</text>
+      <text x="430" y="35" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">12'-6" × 14'-9" (3.81m × 4.50m)</text>
+
+      <text x="0" y="60" font-size="13" fill="#889bb0">Dining Space (Central Hub):</text>
+      <text x="430" y="60" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">12'-6" × 8'-0" (3.81m × 2.44m)</text>
+
+      <text x="0" y="85" font-size="13" fill="#889bb0">Modular Kitchen (SE Agni):</text>
+      <text x="430" y="85" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">12'-6" × 7'-4" (3.81m × 2.24m)</text>
+
+      <text x="0" y="110" font-size="13" fill="#889bb0">Master Bedroom (SW Nairuthi):</text>
+      <text x="430" y="110" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">9'-7" × 7'-9" (2.92m × 2.36m)</text>
+
+      <text x="0" y="135" font-size="13" fill="#889bb0">Car Parking Porch (NW Vayu):</text>
+      <text x="430" y="135" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">10'-0" × 15'-6" (3.05m × 4.72m)</text>
+
+      <text x="0" y="160" font-size="13" fill="#889bb0">Dog-legged Staircase Core:</text>
+      <text x="430" y="160" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">9'-3" × 8'-0" (2.82m × 2.44m)</text>
+    </g>
+
+    <!-- Column 3: DOORS, WINDOWS & CIVIL CODES -->
+    <g transform="translate(980, 25)">
+      <text x="0" y="0" font-size="15" font-weight="800" fill="#00e5ff" letter-spacing="1">3. OPENINGS &amp; CIVIL NOTES</text>
+      <line x1="0" y1="10" x2="430" y2="10" stroke="#2b3e55" stroke-width="1"/>
+
+      <text x="0" y="35" font-size="13" fill="#889bb0">D1 Main Door (Teak Paneled):</text>
+      <text x="430" y="35" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">3'-3" × 7'-0" (1.00m × 2.13m)</text>
+
+      <text x="0" y="60" font-size="13" fill="#889bb0">D2 Bedroom Door (Flush):</text>
+      <text x="430" y="60" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">3'-0" × 7'-0" (0.91m × 2.13m)</text>
+
+      <text x="0" y="85" font-size="13" fill="#889bb0">W1 Living Window (UPVC Sliding):</text>
+      <text x="430" y="85" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">5'-0" × 4'-6" (Sill: 2'-6")</text>
+
+      <text x="0" y="110" font-size="13" fill="#889bb0">W2 Kitchen Window (UPVC Casement):</text>
+      <text x="430" y="110" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">4'-0" × 3'-0" (Sill: 3'-6")</text>
+
+      <text x="0" y="135" font-size="13" fill="#889bb0">External Walls: 9" (230mm) Fly Ash Brick</text>
+      <text x="430" y="135" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">Internal: 4.5" (115mm)</text>
+
+      <text x="0" y="160" font-size="13" fill="#889bb0">Stair Treads: 11" (280mm) | Risers: 6" (150mm)</text>
+      <text x="430" y="160" text-anchor="end" font-size="13" font-weight="700" fill="#06d6a0">Clear Headroom: 7'-6"</text>
+    </g>
+
+    <!-- Footer Seal / Status -->
+    <g transform="translate(30, 240)">
+      <line x1="0" y1="0" x2="1380" y2="0" stroke="#1d2a3a" stroke-width="1"/>
+      <text x="0" y="28" font-size="12" fill="#52799c">PROJECT: 30x40 DUPLEX RESIDENCE | CLIENT: VIJAY | ENGINEERED BIM WORKBENCH | STATUS: APPROVED FOR WORKING</text>
+      <text x="1380" y="28" text-anchor="end" font-size="12" font-weight="700" fill="#00e5ff">AI ARCHITECT BIM ENGINE v2.0</text>
+    </g>
+  </g>
+
+</svg>

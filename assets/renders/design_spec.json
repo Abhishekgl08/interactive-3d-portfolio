@@ -1,0 +1,624 @@
+{
+  "schema_version": "1.0",
+  "project_id": "proj_30x40_duplex",
+  "project_name": "30' \u00d7 40' Contemporary Residential Duplex",
+  "units": "m",
+  "location": {
+    "jurisdiction": "BBMP / NBC 2016",
+    "address_or_region": null,
+    "north_angle_degrees": 0.0
+  },
+  "site": {
+    "boundary": [
+      [
+        -4.57,
+        -6.095
+      ],
+      [
+        4.57,
+        -6.095
+      ],
+      [
+        4.57,
+        6.095
+      ],
+      [
+        -4.57,
+        6.095
+      ]
+    ],
+    "setbacks": {
+      "front_m": 1.52,
+      "rear_m": 0.91,
+      "left_m": 0.91,
+      "right_m": 0.91
+    },
+    "topography": "Flat Urban Plot"
+  },
+  "building": {
+    "use": "residential",
+    "floor_count": 2,
+    "floor_to_floor_heights_m": [
+      3.2,
+      3.1
+    ],
+    "wall_thickness_m": 0.23,
+    "roof_type": "flat"
+  },
+  "levels": [
+    {
+      "level_id": "L0",
+      "name": "Ground Floor",
+      "elevation_m": 0.0,
+      "height_m": 3.2
+    },
+    {
+      "level_id": "L1",
+      "name": "First Floor",
+      "elevation_m": 3.2,
+      "height_m": 3.1
+    },
+    {
+      "level_id": "L2",
+      "name": "Roof Terrace",
+      "elevation_m": 6.3,
+      "height_m": 1.0
+    },
+    {
+      "level_id": "L3_Mumty",
+      "name": "Mumty Cabin",
+      "elevation_m": 6.3,
+      "height_m": 2.8
+    }
+  ],
+  "spaces": [],
+  "walls": [
+    {
+      "wall_id": "L0_Wall_Rear",
+      "level_id": "L0",
+      "start_point": [
+        -3.66,
+        4.875
+      ],
+      "end_point": [
+        3.66,
+        4.875
+      ],
+      "height_m": 3.2,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L0_Wall_East",
+      "level_id": "L0",
+      "start_point": [
+        3.66,
+        -4.875
+      ],
+      "end_point": [
+        3.66,
+        4.875
+      ],
+      "height_m": 3.2,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L0_Wall_West",
+      "level_id": "L0",
+      "start_point": [
+        -3.66,
+        4.875
+      ],
+      "end_point": [
+        -3.66,
+        -4.875
+      ],
+      "height_m": 3.2,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L0_Wall_Front_Living",
+      "level_id": "L0",
+      "start_point": [
+        -0.4,
+        -4.875
+      ],
+      "end_point": [
+        3.66,
+        -4.875
+      ],
+      "height_m": 3.2,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L0_Wall_Porch_Div",
+      "level_id": "L0",
+      "start_point": [
+        -0.4,
+        -4.875
+      ],
+      "end_point": [
+        -0.4,
+        0.0
+      ],
+      "height_m": 3.2,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_charcoal"
+    },
+    {
+      "wall_id": "L1_Wall_Rear",
+      "level_id": "L1",
+      "start_point": [
+        -3.66,
+        4.875
+      ],
+      "end_point": [
+        3.66,
+        4.875
+      ],
+      "height_m": 3.1,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L1_Wall_East",
+      "level_id": "L1",
+      "start_point": [
+        3.66,
+        -4.875
+      ],
+      "end_point": [
+        3.66,
+        4.875
+      ],
+      "height_m": 3.1,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L1_Wall_West_Charcoal",
+      "level_id": "L1",
+      "start_point": [
+        -3.66,
+        -4.875
+      ],
+      "end_point": [
+        -3.66,
+        -0.375
+      ],
+      "height_m": 3.1,
+      "thickness_m": 0.24,
+      "is_exterior": true,
+      "material": "wall_charcoal"
+    },
+    {
+      "wall_id": "L1_Wall_West_Rear",
+      "level_id": "L1",
+      "start_point": [
+        -3.66,
+        -0.375
+      ],
+      "end_point": [
+        -3.66,
+        4.875
+      ],
+      "height_m": 3.1,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L1_Wall_Front_Tower",
+      "level_id": "L1",
+      "start_point": [
+        -3.66,
+        -4.875
+      ],
+      "end_point": [
+        -1.5,
+        -4.875
+      ],
+      "height_m": 3.1,
+      "thickness_m": 0.24,
+      "is_exterior": true,
+      "material": "wall_charcoal"
+    },
+    {
+      "wall_id": "L1_Wall_Front_Louvers",
+      "level_id": "L1",
+      "start_point": [
+        -1.5,
+        -4.875
+      ],
+      "end_point": [
+        0.8,
+        -4.875
+      ],
+      "height_m": 3.1,
+      "thickness_m": 0.15,
+      "is_exterior": true,
+      "material": "teak_louver"
+    },
+    {
+      "wall_id": "L1_Wall_Front_Right",
+      "level_id": "L1",
+      "start_point": [
+        0.8,
+        -4.875
+      ],
+      "end_point": [
+        3.66,
+        -4.875
+      ],
+      "height_m": 3.1,
+      "thickness_m": 0.23,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L1_Railing_Front",
+      "level_id": "L1",
+      "start_point": [
+        -3.66,
+        -5.325
+      ],
+      "end_point": [
+        3.66,
+        -5.325
+      ],
+      "height_m": 1.05,
+      "thickness_m": 0.06,
+      "is_exterior": true,
+      "material": "glass"
+    },
+    {
+      "wall_id": "L1_Railing_Left",
+      "level_id": "L1",
+      "start_point": [
+        -3.66,
+        -5.325
+      ],
+      "end_point": [
+        -3.66,
+        -4.875
+      ],
+      "height_m": 1.05,
+      "thickness_m": 0.06,
+      "is_exterior": true,
+      "material": "glass"
+    },
+    {
+      "wall_id": "L1_Railing_Right",
+      "level_id": "L1",
+      "start_point": [
+        3.66,
+        -4.875
+      ],
+      "end_point": [
+        3.66,
+        -5.325
+      ],
+      "height_m": 1.05,
+      "thickness_m": 0.06,
+      "is_exterior": true,
+      "material": "glass"
+    },
+    {
+      "wall_id": "L2_Parapet_Front",
+      "level_id": "L2",
+      "start_point": [
+        -3.66,
+        -4.875
+      ],
+      "end_point": [
+        3.66,
+        -4.875
+      ],
+      "height_m": 1.0,
+      "thickness_m": 0.15,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L2_Parapet_East",
+      "level_id": "L2",
+      "start_point": [
+        3.66,
+        -4.875
+      ],
+      "end_point": [
+        3.66,
+        4.875
+      ],
+      "height_m": 1.0,
+      "thickness_m": 0.15,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L2_Parapet_Rear",
+      "level_id": "L2",
+      "start_point": [
+        3.66,
+        4.875
+      ],
+      "end_point": [
+        -3.66,
+        4.875
+      ],
+      "height_m": 1.0,
+      "thickness_m": 0.15,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L2_Parapet_West",
+      "level_id": "L2",
+      "start_point": [
+        -3.66,
+        4.875
+      ],
+      "end_point": [
+        -3.66,
+        -4.875
+      ],
+      "height_m": 1.0,
+      "thickness_m": 0.15,
+      "is_exterior": true,
+      "material": "wall_white"
+    },
+    {
+      "wall_id": "L2_Mumty_Front",
+      "level_id": "L3_Mumty",
+      "start_point": [
+        -3.66,
+        0.0
+      ],
+      "end_point": [
+        -0.4,
+        0.0
+      ],
+      "height_m": 2.8,
+      "thickness_m": 0.2,
+      "is_exterior": true,
+      "material": "wall_charcoal"
+    },
+    {
+      "wall_id": "L2_Mumty_East",
+      "level_id": "L3_Mumty",
+      "start_point": [
+        -0.4,
+        0.0
+      ],
+      "end_point": [
+        -0.4,
+        4.875
+      ],
+      "height_m": 2.8,
+      "thickness_m": 0.2,
+      "is_exterior": true,
+      "material": "wall_charcoal"
+    },
+    {
+      "wall_id": "L2_Mumty_Rear",
+      "level_id": "L3_Mumty",
+      "start_point": [
+        -0.4,
+        4.875
+      ],
+      "end_point": [
+        -3.66,
+        4.875
+      ],
+      "height_m": 2.8,
+      "thickness_m": 0.2,
+      "is_exterior": true,
+      "material": "wall_charcoal"
+    },
+    {
+      "wall_id": "L2_Mumty_West",
+      "level_id": "L3_Mumty",
+      "start_point": [
+        -3.66,
+        4.875
+      ],
+      "end_point": [
+        -3.66,
+        0.0
+      ],
+      "height_m": 2.8,
+      "thickness_m": 0.2,
+      "is_exterior": true,
+      "material": "wall_charcoal"
+    }
+  ],
+  "slabs": [
+    {
+      "slab_id": "Slab_Ground",
+      "level_id": "L0",
+      "boundary": [
+        [
+          -3.66,
+          -4.875
+        ],
+        [
+          3.66,
+          -4.875
+        ],
+        [
+          3.66,
+          4.875
+        ],
+        [
+          -3.66,
+          4.875
+        ]
+      ],
+      "thickness_m": 0.2,
+      "material": "slab"
+    },
+    {
+      "slab_id": "Slab_FirstFlr",
+      "level_id": "L1",
+      "boundary": [
+        [
+          -3.66,
+          -5.325
+        ],
+        [
+          3.66,
+          -5.325
+        ],
+        [
+          3.66,
+          4.875
+        ],
+        [
+          -3.66,
+          4.875
+        ]
+      ],
+      "thickness_m": 0.2,
+      "material": "slab"
+    },
+    {
+      "slab_id": "Slab_Terrace",
+      "level_id": "L2",
+      "boundary": [
+        [
+          -3.66,
+          -4.875
+        ],
+        [
+          3.66,
+          -4.875
+        ],
+        [
+          3.66,
+          4.875
+        ],
+        [
+          -3.66,
+          4.875
+        ]
+      ],
+      "thickness_m": 0.18,
+      "material": "slab"
+    },
+    {
+      "slab_id": "Slab_MumtyRoof",
+      "level_id": "L3_Mumty",
+      "boundary": [
+        [
+          -3.66,
+          0.0
+        ],
+        [
+          -0.4,
+          0.0
+        ],
+        [
+          -0.4,
+          4.875
+        ],
+        [
+          -3.66,
+          4.875
+        ]
+      ],
+      "thickness_m": 0.15,
+      "material": "slab"
+    }
+  ],
+  "openings": [
+    {
+      "opening_id": "L0_Win_Living",
+      "host_wall_id": "L0_Wall_Front_Living",
+      "opening_type": "window",
+      "width_m": 2.2,
+      "height_m": 1.8,
+      "sill_height_m": 0.8,
+      "offset_m": 1.0
+    },
+    {
+      "opening_id": "L0_Door_Main",
+      "host_wall_id": "L0_Wall_Porch_Div",
+      "opening_type": "door",
+      "width_m": 1.1,
+      "height_m": 2.2,
+      "sill_height_m": 0.0,
+      "offset_m": 3.0
+    },
+    {
+      "opening_id": "L1_Door_Balcony",
+      "host_wall_id": "L1_Wall_Front_Right",
+      "opening_type": "door",
+      "width_m": 1.8,
+      "height_m": 2.4,
+      "sill_height_m": 0.0,
+      "offset_m": 0.6
+    },
+    {
+      "opening_id": "L1_Win_Master",
+      "host_wall_id": "L1_Wall_Front_Tower",
+      "opening_type": "window",
+      "width_m": 1.2,
+      "height_m": 1.8,
+      "sill_height_m": 0.8,
+      "offset_m": 0.4
+    },
+    {
+      "opening_id": "L2_Door_Terrace",
+      "host_wall_id": "L2_Mumty_Front",
+      "opening_type": "door",
+      "width_m": 1.0,
+      "height_m": 2.1,
+      "sill_height_m": 0.0,
+      "offset_m": 1.2
+    }
+  ],
+  "style": {
+    "description": "Contemporary Duplex with Vertical Slatted Railing, Fluted Burma Teak Pivot Door with Brass Accents, and Modern Architectural Gates",
+    "materials": [
+      "WallStuccoMat",
+      "CharcoalAccentMat",
+      "TeakWoodMat",
+      "GlassMat"
+    ]
+  },
+  "constraints": [
+    "Site 30ft x 40ft",
+    "North-Facing Road",
+    "Mandatory Setbacks",
+    "Ground Parking"
+  ],
+  "assumptions": [
+    "Municipal bylaws require 64% maximum plinth coverage",
+    "RCC framed structure"
+  ],
+  "unknowns": [
+    "Local soil bearing capacity for foundation depth"
+  ],
+  "approval_status": "draft",
+  "revision": 2,
+  "revision_notes": [
+    {
+      "revision": 2,
+      "changes": [
+        "Upgraded balcony railing from frameless glass to modern vertical slatted balustrade with teak handrail cap and concealed LED base light",
+        "Redesigned main entrance to grand fluted Burma teak pivot door (1.3m x 2.4m) with brushed brass vertical inlay stripe and cylindrical pull handle",
+        "Updated front vehicular gate to contemporary horizontal slat design and added integrated pedestrian entry door"
+      ]
+    }
+  ]
+}
